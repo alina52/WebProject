@@ -22,6 +22,26 @@ app.get('/', function(req,res,next){
     res.sendFile('public/welcome.html', { root: __dirname });
 });
 
+app.get('/index', function(req, res,next) {
+	res.sendFile("public/index.html", { root:__dirname});
+});
+
+app.get('/welcome', function(req, res,next) {
+	res.sendFile("public/html/welcome.html", { root:__dirname});
+});
+
+app.get('/picture', function(req, res,next) {
+	res.sendFile("public/html/picture_list.html", { root:__dirname});
+});
+
+app.get('/game', function(req, res,next) {
+	res.sendFile("public/html/memory.html", { root:__dirname});
+});
+
+app.get('/admin', function(req, res,next) {
+	res.sendFile("public/admin/index.html", { root:__dirname});
+});
+
 app.use((req,res,next)=>{
     res.send("404 not found");
 })
