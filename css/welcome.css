@@ -36,31 +36,32 @@ img{
 }
 
 .tit{
-	/*position: absolute;*/
+	position: absolute;
 	margin: 10% 20% auto;
 	font-weight: 200;
 
 }
 
-.enter:hover #talk{
-  display: block;
-  -webkit-transition:all ease 0.3s;
--moz-transition:all ease 0.3s;
--o-transition:all ease 0.3s;
-transition:all ease 0.3s;
-}
 #talk{
   display: none;
-  
+   margin: -150% 70% auto;
+   transition: width 1s linear;
+
 }
+.enter:hover #talk{
+  display: block;
+  transition: all 1s ease-in-out;
+
+}
+
 
 
 @media screen and (max-width: 992px) {
   .container div[class^="col-"] {
-    margin-top: 25px;
-    margin-bottom: 25px;
+    margin-top: 10%;
+    margin-bottom: 10%;
   }
   .container div[class^="col-"]:after {
-    display: none;
+    display: block;
   }
 }
