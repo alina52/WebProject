@@ -1,0 +1,21 @@
+{
+  "name": "web_project",
+  "description": "",
+  "main": "index.js",
+  "authors": [
+    "Alina Wang <alinawang1125@gmail.com>"
+  ],
+  "license": "ISC",
+  "homepage": "https://github.com/alina52/WebProject",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jQuery": "^3.2.1",
+    "bootstrap": "^3.3.7"
+  }
+}
