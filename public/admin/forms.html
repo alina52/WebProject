@@ -26,7 +26,7 @@
   <!-- Fav and touch icons -->
 
   <!-- Windows8 touch icon ( http://www.buildmypinnedsite.com/ )-->
-  <meta name="msapplication-TileColor" content="#3399cc" />
+  <meta name="msapplication-TileColor" content="#6fd6c5" />
 </head>
 
 <body>
@@ -104,14 +104,14 @@
                   <div class="form-group">
                     <label class="col-lg-2 col-md-2 col-sm-12 control-label">名称</label>
                     <div class="col-lg-3 col-md-3">
-                      <input type="text" class="form-control limitInput" placeholder="最多20字" maxlength="20">
+                      <input id="name" type="text" class="form-control limitInput" placeholder="最多20字" maxlength="20">
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label class="col-lg-2 col-md-2 col-sm-12 control-label">选择日期</label>
                     <div class="col-lg-3 col-md-3">
-                      <input class="form-control datetime-picker2" type="text" value="">
+                      <input id="date" class="form-control datetime-picker2" type="text" value="">
                     </div>
 
                   </div>
@@ -119,26 +119,26 @@
                   <div class="form-group">
                     <label class="col-lg-2 col-md-2 col-sm-12 control-label">标签</label>
                     <div class="col-lg-6 col-md-6">
-                      <input type="text" class="form-control tags" value="red, green, yellow">
+                      <input id="tag" type="text" class="form-control tags" value="red, green, yellow">
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label class="col-lg-2 col-md-2 col-sm-12 control-label">描述</label>
                     <div class="col-lg-6 col-md-6">
-                      <textarea class="form-control limitInput" rows="3" placeholder="最多50字" maxlength="50"></textarea>
+                      <textarea id="description"class="form-control limitInput" rows="3" placeholder="最多50字" maxlength="50"></textarea>
                     </div>
                   </div>
 
                   <div class="form-group">
                     <label class="col-lg-2 col-md-2 col-sm-12 control-label">上传图片</label>
                     <div class="col-lg-6 col-md-6">
-                      <input type="file" class="form-control">
+                      <input id="file" type="file" class="form-control">
                     </div>
                   </div>
                   <div class="form-group">
                       <div class="col-lg-offset-2">
-                          <button class="btn btn-success btn-alt" type="submit">上传</button>
+                          <button  id="upload"" class="btn btn-success btn-alt" type="submit">上传</button>
                       </div>
                   </div>
                 </form>
@@ -204,7 +204,10 @@
   <script src="assets/plugins/misc/countTo/jquery.countTo.js"></script>
   <script src="assets/js/jquery.sprFlat.js"></script>
   <script src="assets/js/app.js"></script>
-  <script src="assets/js/forms.js"></script>
+  <script src="assets/js/pages/forms.js"></script>
+  <script src="js/upload.js">
+
+  </script>
 </body>
 
 </html>
