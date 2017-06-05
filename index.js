@@ -18,6 +18,9 @@ app.all('*',function (req, res, next) {
   next();
 });
 
+var account = require('./routes/account');
+app.use('/api/account', account);
+
 app.get('/', function(req,res,next){
     res.sendFile('public/welcome.html', { root: __dirname });
 });
