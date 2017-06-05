@@ -9,8 +9,11 @@ token.getToken = function () {
 token.validate = function(getToken) {
 	if (getToken == token_str)
 		return true;
-	else
+	else {
+		console.log('expected is :' + token_str);
+		console.log('but get:' + getToken);
 		return false;
+	}
 }
 
 module.exports = token;

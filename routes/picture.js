@@ -32,15 +32,6 @@ router.route('/')
 	})
 })
 .post(function(req, res, next) {
-	var tags = "";
-	for (var index = 0; index < req.body['tag'].length; index++) {
-		var tmp = req.body['tag'][index];
-		tmp = tmp.
-		tags += req.body['tag'][index];
-		if (index != req.body['tag'].length - 1)
-			tags += ",";
-	}
-	req.body['tag'] = tags;
 
 	var sql = 'insert into picture (name, description, date, tag, path) values(\'' + req.body['name'] + '\', \'';
 	sql += req.body['description'] + '\', \'' + req.body['date'] + '\', \'' + req.body['tag'] + '\', \'' + req.body['path'];
