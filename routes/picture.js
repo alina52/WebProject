@@ -25,7 +25,6 @@ router.route('/')
 	db.do_query(sql, function(result) {
 		for (var index = 0; index < result.length; index++) {
 			var tags = [];
-			// result[index]['tag'] = result.
 			tags = result[index]['tag'].split(',');
 			result[index]['tag'] = tags;
 		}
@@ -35,6 +34,8 @@ router.route('/')
 .post(function(req, res, next) {
 	var tags = "";
 	for (var index = 0; index < req.body['tag'].length; index++) {
+		var tmp = req.body['tag'][index];
+		tmp = tmp.
 		tags += req.body['tag'][index];
 		if (index != req.body['tag'].length - 1)
 			tags += ",";
@@ -45,7 +46,7 @@ router.route('/')
 	sql += req.body['description'] + '\', \'' + req.body['date'] + '\', \'' + req.body['tag'] + '\', \'' + req.body['path'];
 	sql += '\');';
 	console.log(sql);
-	// db.do_query(sql, function() {});
+	db.do_query(sql, function() {});
 	res.sendStatus(201);
 });
 
