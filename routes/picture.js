@@ -22,18 +22,50 @@ router.route('/*')
 router.route('/')
 .get(function(req, res, next) {
 	var sql = 'select * from picture';
-	db.do_query('sql', function(result) {
-		res.send(result);
+	db.do_query(sql, function(result) {
+		for (var index = 0; index < result.length; index++) {
+			var tags = [];
+			// result[index]['tag'] = result.
+			tags = result[index]['tag'].split(',');
+			result[index]['tag'] = tags;
+		}
+		res.send({'pictures': result});
 	})
 })
 .post(function(req, res, next) {
-	res.sendStatus(401);
+	var tags = "";
+	for (var index = 0; index < req.body['tag'].length; index++) {
+		tags += req.body['tag'][index];
+		if (index != req.body['tag'].length - 1)
+			tags += ",";
+	}
+	req.body['tag'] = tags;
+
+	var sql = 'insert into picture (name, description, date, tag, path) values(\'' + req.body['name'] + '\', \'';
+	sql += req.body['description'] + '\', \'' + req.body['date'] + '\', \'' + req.body['tag'] + '\', \'' + req.body['path'];
+	sql += '\');';
+	console.log(sql);
+	// db.do_query(sql, function() {});
+	res.sendStatus(201);
 });
 
 router.route('/:id')
 .put(function(req, res, next) {
 	var pic_id = req.params.id;
-	res.send(pic_id);
+	var tags = "";
+	for (var index = 0; index < req.body['tag'].length; index++) {
+		tags += req.body['tag'][index];
+		if (index != req.body['tag'].length - 1)
+			tags += ",";
+	}
+	req.body['tag'] = tags;
+
+	var sql = "update picture set name = \'" + req.body['name'] + "\', description = \'" + req.body['description'];
+	sql += "\', tag = \'" + req.body['tag'] + "\', date = \'" + req.body['date'] + "\', path = \'" + req.body['path'];
+	sql += "\' where picture_id = " + pic_id;
+	console.log(sql);
+	db.do_query(sql, function() {});
+	res.sendStatus(200);
 })
 .delete(function(req, res, next) {
 	var pic_id = req.params.id;
