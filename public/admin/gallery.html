@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <title>管理平台 | 相册管理</title>
+        <link href="../img/favicon.ico" rel="icon" type="image/x-icon" />
+
+        <!-- Mobile specific metas -->
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!-- Force IE9 to render in normal mode -->
+        <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
+
+        <!-- Import google fonts - Heading first/ text second -->
+        <link rel='stylesheet' type='text/css'
+
+         <!-- Css files  -->
+        <!-- Icons -->
+        <link href="assets/css/icons.css" rel="stylesheet" />
+        <!-- jQueryUI -->
+        <link href="assets/css/sprflat-theme/jquery.ui.all.css" rel="stylesheet" />
+        <!-- Bootstrap stylesheets (included template modifications) -->
+        <link href="assets/css/bootstrap.css" rel="stylesheet" />
+        <!-- Plugins stylesheets (all plugin custom css) -->
+        <link href="assets/css/plugins.css" rel="stylesheet" />
+        <!-- Main stylesheets (template main css file) -->
+        <link href="assets/css/main.css" rel="stylesheet" />
+        <!-- Custom stylesheets ( Put your own changes here ) -->
+        <link href="assets/css/custom.css" rel="stylesheet" />
+        <!-- Fav and touch icons -->
+        <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/img/ico/apple-touch-icon-144-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/img/ico/apple-touch-icon-114-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/img/ico/apple-touch-icon-72-precomposed.png">
+        <link rel="apple-touch-icon-precomposed" href="assets/img/ico/apple-touch-icon-57-precomposed.png">
+        <link rel="icon" href="assets/img/ico/favicon.ico" type="image/png">
+        <!-- Windows8 touch icon ( http://www.buildmypinnedsite.com/ )-->
+        <meta name="msapplication-TileColor" content="#3399cc" />
+    </head>
+    <body>
+        <!-- Start #header -->
+        <div id="header">
+            <div class="container-fluid">
+                <div class="navbar">
+                    <div class="navbar-header">
+                        <a class="navbar-brand" href="index.html">
+                            <i class="im-windows8 text-logo-element animated bounceIn"></i><span class="text-logo">spr</span><span class="text-slogan">flat</span>
+                        </a>
+                    </div>
+                    <nav class="top-nav" role="navigation">
+                        <ul class="nav navbar-nav pull-left">
+                            <li id="toggle-sidebar-li">
+                                <a href="#" id="toggle-sidebar"><i class="en-arrow-left2"></i>
+                        </a>
+                            </li>
+                            <li>
+                                <a href="#" class="full-screen"><i class="fa-fullscreen"></i></a>
+                            </li>
+                        </ul>
+                        <ul class="nav navbar-nav pull-right">
+
+                            <li class="dropdown">
+                                <a href="#" data-toggle="dropdown">
+                                    <img class="user-avatar" src="assets/img/avatars/48.jpg" alt="SuggeElson">SuggeElson</a>
+                                <ul class="dropdown-menu right" role="menu">
+                                    <li><a href="index.html"><i class="im-exit"></i> Logout</a>
+                                    </li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+        <!-- Start #sidebar -->
+        <div id="sidebar">
+            <!-- Start .sidebar-inner -->
+            <div class="sidebar-inner">
+                <!-- Start #sideNav -->
+                <ul id="sideNav" class="nav nav-pills nav-stacked">
+
+                  <li>
+                      <a href="#"> 相册 <i class="im-paragraph-justify"></i></a>
+                      <ul class="nav sub">
+                          <li><a href="/admin/upload"><i class="ec-pencil2"></i> 上传图片</a>
+                          </li>
+                          <li><a href="/admin/gallery"><i class="im-images"></i> 管理相册</a>
+                          </li>
+                      </ul>
+                  </li>
+
+                </ul>
+                <!-- End #sideNav -->
+            </div>
+            <!-- End .sidebar-inner -->
+        </div>
+        <!-- End #sidebar -->
+        <!-- Start #right-sidebar -->
+        <div id="right-sidebar" class="hide-sidebar">
+            <!-- Start .sidebar-inner -->
+            <div class="sidebar-inner">
+                <div class="sidebar-panel mt0">
+                    <div class="sidebar-panel-content fullwidth pt0">
+
+                    </div>
+                </div>
+            </div>
+            <!-- End .sidebar-inner -->
+        </div>
+        <!-- End #right-sidebar -->
+        <!-- Start #content -->
+        <div id="content">
+            <!-- Start .content-wrapper -->
+            <div class="content-wrapper">
+                <div class="row">
+                    <!-- Start .row -->
+                    <!-- Start .page-header -->
+                    <div class="col-lg-12 heading">
+                        <h1 class="page-header"><i class="im-images"></i> 相册</h1>
+                        <!-- Start .bredcrumb -->
+                        <!-- <ul id="crumb" class="breadcrumb">
+                        </ul> -->
+                        <!-- End .breadcrumb -->
+                        <!-- Start .option-buttons -->
+
+                        <!-- End .option-buttons -->
+                    </div>
+                    <!-- End .page-header -->
+                </div>
+                <!-- End .row -->
+                <div class="outlet">
+                    <!-- Start .outlet -->
+                    <!-- Page start here ( usual with .row ) -->
+                    <div class="row">
+                        <div class="gallery">
+                            <!-- start .gallery -->
+                            <div class="gallery-toolbar">
+                                <div class="col-lg-12">
+                                    <!-- col-lg-12 start here -->
+                                    <button class="filter btn btn-primary btn-alt mr5" data-filter="all">All</button>
+                                    <button class="filter btn btn-primary btn-alt mr5" data-filter=".sea">Sea</button>
+                                    <button class="filter btn btn-primary btn-alt mr5" data-filter=".city">City</button>
+                                    <button class="filter btn btn-primary btn-alt mr5" data-filter=".nature">Nature</button>
+                                    <button class="filter btn btn-primary btn-alt mr5" data-filter=".vegetables">Vegetables</button>
+                                    <span class="sort btn btn-primary btn-alt" data-sort="random">Random</span>
+                                </div>
+                                <!-- col-lg-12 end here -->
+                            </div>
+                            <div class="gallery-inner">
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mix sea" data-my-order="1">
+                                    <a href="#" class="thumbnail">
+                                        <img src="assets/img/gallery/1.jpg" alt="image">
+                                    </a>
+                                    <div class="gallery-image-controls">
+                                        <div class="action-btn">
+                                            <a class="gallery-image-open btn btn-primary btn-round tipB" title="Open image" href="assets/img/gallery/1.jpg"><i class="ec-search"></i></a>
+                                            <a class="gallery-image-download btn btn-primary btn-round tipB" title="Download" href="#"><i class="st-download"></i></a>
+                                            <a class="gallery-image-delete btn btn-primary btn-round tipB" href="#" title="Delete"><i class="ec-trashcan"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mix city" data-my-order="2">
+                                    <a href="#" class="thumbnail">
+                                        <img src="assets/img/gallery/2.jpg" alt="image">
+                                    </a>
+                                    <div class="gallery-image-controls">
+                                        <div class="action-btn">
+                                            <a class="gallery-image-open btn btn-primary btn-round tipB" title="Open image" href="assets/img/gallery/2.jpg"><i class="ec-search"></i></a>
+                                            <a class="gallery-image-download btn btn-primary btn-round tipB" title="Download" href="#"><i class="st-download"></i></a>
+                                            <a class="gallery-image-delete btn btn-primary btn-round tipB" href="#" title="Delete"><i class="ec-trashcan"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mix city" data-my-order="3">
+                                    <a href="#" class="thumbnail">
+                                        <img src="assets/img/gallery/3.jpg" alt="image">
+                                    </a>
+                                    <div class="gallery-image-controls">
+                                        <div class="action-btn">
+                                            <a class="gallery-image-open btn btn-primary btn-round tipB" title="Open image" href="assets/img/gallery/3.jpg"><i class="ec-search"></i></a>
+                                            <a class="gallery-image-download btn btn-primary btn-round tipB" title="Download" href="#"><i class="st-download"></i></a>
+                                            <a class="gallery-image-delete btn btn-primary btn-round tipB" href="#" title="Delete"><i class="ec-trashcan"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mix nature" data-my-order="4">
+                                    <a href="#" class="thumbnail">
+                                        <img src="assets/img/gallery/4.jpg" alt="image">
+                                    </a>
+                                    <div class="gallery-image-controls">
+                                        <div class="action-btn">
+                                            <a class="gallery-image-open btn btn-primary btn-round tipB" title="Open image" href="assets/img/gallery/4.jpg"><i class="ec-search"></i></a>
+                                            <a class="gallery-image-download btn btn-primary btn-round tipB" title="Download" href="#"><i class="st-download"></i></a>
+                                            <a class="gallery-image-delete btn btn-primary btn-round tipB" href="#" title="Delete"><i class="ec-trashcan"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mix nature" data-my-order="5">
+                                    <a href="#" class="thumbnail">
+                                        <img src="assets/img/gallery/5.jpg" alt="image">
+                                    </a>
+                                    <div class="gallery-image-controls">
+                                        <div class="action-btn">
+                                            <a class="gallery-image-open btn btn-primary btn-round tipB" title="Open image" href="assets/img/gallery/5.jpg"><i class="ec-search"></i></a>
+                                            <a class="gallery-image-download btn btn-primary btn-round tipB" title="Download" href="#"><i class="st-download"></i></a>
+                                            <a class="gallery-image-delete btn btn-primary btn-round tipB" href="#" title="Delete"><i class="ec-trashcan"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mix nature" data-my-order="6">
+                                    <a href="#" class="thumbnail">
+                                        <img src="assets/img/gallery/6.jpg" alt="image">
+                                    </a>
+                                    <div class="gallery-image-controls">
+                                        <div class="action-btn">
+                                            <a class="gallery-image-open btn btn-primary btn-round tipB" title="Open image" href="assets/img/gallery/6.jpg"><i class="ec-search"></i></a>
+                                            <a class="gallery-image-download btn btn-primary btn-round tipB" title="Download" href="#"><i class="st-download"></i></a>
+                                            <a class="gallery-image-delete btn btn-primary btn-round tipB" href="#" title="Delete"><i class="ec-trashcan"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mix sea" data-my-order="7">
+                                    <a href="#" class="thumbnail">
+                                        <img src="assets/img/gallery/7.jpg" alt="image">
+                                    </a>
+                                    <div class="gallery-image-controls">
+                                        <div class="action-btn">
+                                            <a class="gallery-image-open btn btn-primary btn-round tipB" title="Open image" href="assets/img/gallery/7.jpg"><i class="ec-search"></i></a>
+                                            <a class="gallery-image-download btn btn-primary btn-round tipB" title="Download" href="#"><i class="st-download"></i></a>
+                                            <a class="gallery-image-delete btn btn-primary btn-round tipB" href="#" title="Delete"><i class="ec-trashcan"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mix sea" data-my-order="8">
+                                    <a href="#" class="thumbnail">
+                                        <img src="assets/img/gallery/8.jpg" alt="image">
+                                    </a>
+                                    <div class="gallery-image-controls">
+                                        <div class="action-btn">
+                                            <a class="gallery-image-open btn btn-primary btn-round tipB" title="Open image" href="assets/img/gallery/8.jpg"><i class="ec-search"></i></a>
+                                            <a class="gallery-image-download btn btn-primary btn-round tipB" title="Download" href="#"><i class="st-download"></i></a>
+                                            <a class="gallery-image-delete btn btn-primary btn-round tipB" href="#" title="Delete"><i class="ec-trashcan"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mix vegetables" data-my-order="9">
+                                    <a href="#" class="thumbnail">
+                                        <img src="assets/img/gallery/9.jpg" alt="image">
+                                    </a>
+                                    <div class="gallery-image-controls">
+                                        <div class="action-btn">
+                                            <a class="gallery-image-open btn btn-primary btn-round tipB" title="Open image" href="assets/img/gallery/9.jpg"><i class="ec-search"></i></a>
+                                            <a class="gallery-image-download btn btn-primary btn-round tipB" title="Download" href="#"><i class="st-download"></i></a>
+                                            <a class="gallery-image-delete btn btn-primary btn-round tipB" href="#" title="Delete"><i class="ec-trashcan"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mix vegetables" data-my-order="10">
+                                    <a href="#" class="thumbnail">
+                                        <img src="assets/img/gallery/10.jpg" alt="image">
+                                    </a>
+                                    <div class="gallery-image-controls">
+                                        <div class="action-btn">
+                                            <a class="gallery-image-open btn btn-primary btn-round tipB" title="Open image" href="assets/img/gallery/10.jpg"><i class="ec-search"></i></a>
+                                            <a class="gallery-image-download btn btn-primary btn-round tipB" title="Download" href="#"><i class="st-download"></i></a>
+                                            <a class="gallery-image-delete btn btn-primary btn-round tipB" href="#" title="Delete"><i class="ec-trashcan"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mix sea" data-my-order="11">
+                                    <a href="#" class="thumbnail">
+                                        <img src="assets/img/gallery/11.jpg" alt="image">
+                                    </a>
+                                    <div class="gallery-image-controls">
+                                        <div class="action-btn">
+                                            <a class="gallery-image-open btn btn-primary btn-round tipB" title="Open image" href="assets/img/gallery/11.jpg"><i class="ec-search"></i></a>
+                                            <a class="gallery-image-download btn btn-primary btn-round tipB" title="Download" href="#"><i class="st-download"></i></a>
+                                            <a class="gallery-image-delete btn btn-primary btn-round tipB" href="#" title="Delete"><i class="ec-trashcan"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 mix city" data-my-order="12">
+                                    <a href="#" class="thumbnail">
+                                        <img src="assets/img/gallery/12.jpg" alt="image">
+                                    </a>
+                                    <div class="gallery-image-controls">
+                                        <div class="action-btn">
+                                            <a class="gallery-image-open btn btn-primary btn-round tipB" title="Open image" href="assets/img/gallery/12.jpg"><i class="ec-search"></i></a>
+                                            <a class="gallery-image-download btn btn-primary btn-round tipB" title="Download" href="#"><i class="st-download"></i></a>
+                                            <a class="gallery-image-delete btn btn-primary btn-round tipB" href="#" title="Delete"><i class="ec-trashcan"></i></a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- gallery end here -->
+                    </div>
+                    <!-- Page End here -->
+                </div>
+                <!-- End .outlet -->
+            </div>
+            <!-- End .content-wrapper -->
+            <div class="clearfix"></div>
+        </div>
+        <!-- End #content -->
+        <!-- Javascripts -->
+        <!-- Load pace first -->
+        <script src="assets/plugins/core/pace/pace.min.js"></script>
+        <!-- Important javascript libs(put in all pages) -->
+        <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
+        <script>
+        window.jQuery || document.write('<script src="assets/js/libs/jquery-2.1.1.min.js">\x3C/script>')
+        </script>
+        <script src="http://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+        <script>
+        window.jQuery || document.write('<script src="assets/js/libs/jquery-ui-1.10.4.min.js">\x3C/script>')
+        </script>
+        <!--[if lt IE 9]>
+  <script type="text/javascript" src="assets/js/libs/excanvas.min.js"></script>
+  <script type="text/javascript" src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+  <script type="text/javascript" src="assets/js/libs/respond.min.js"></script>
+<![endif]-->
+        <!-- Bootstrap plugins -->
+        <script src="assets/js/bootstrap/bootstrap.js"></script>
+        <!-- Core plugins ( not remove ever) -->
+        <!-- Handle responsive view functions -->
+        <script src="assets/js/jRespond.min.js"></script>
+        <!-- Custom scroll for sidebars,tables and etc. -->
+        <script src="assets/plugins/core/slimscroll/jquery.slimscroll.min.js"></script>
+        <script src="assets/plugins/core/slimscroll/jquery.slimscroll.horizontal.min.js"></script>
+        <!-- Resize text area in most pages -->
+        <script src="assets/plugins/forms/autosize/jquery.autosize.js"></script>
+        <!-- Proivde quick search for many widgets -->
+        <script src="assets/plugins/core/quicksearch/jquery.quicksearch.js"></script>
+        <!-- Bootbox confirm dialog for reset postion on panels -->
+        <script src="assets/plugins/ui/bootbox/bootbox.js"></script>
+        <!-- Other plugins ( load only nessesary plugins for every page) -->
+        <script src="assets/plugins/charts/sparklines/jquery.sparkline.js"></script>
+        <script src="assets/plugins/charts/pie-chart/jquery.easy-pie-chart.js"></script>
+        <script src="assets/plugins/forms/icheck/jquery.icheck.js"></script>
+        <script src="assets/plugins/forms/tags/jquery.tagsinput.min.js"></script>
+        <script src="assets/plugins/forms/tinymce/tinymce.min.js"></script>
+        <script src="assets/plugins/misc/highlight/highlight.pack.js"></script>
+        <script src="assets/plugins/misc/countTo/jquery.countTo.js"></script>
+        <script src="assets/plugins/misc/gallery/jquery.magnific-popup.min.js"></script>
+        <script src="assets/plugins/misc/mixitup/jquery.mixitup.min.js"></script>
+        <script src="assets/js/jquery.sprFlat.js"></script>
+        <script src="assets/js/app.js"></script>
+        <script src="assets/js/pages/gallery.js"></script>
+    </body>
+</html>

@@ -16,7 +16,7 @@ app.post('/api/upload', function(req, res, next) {
         if (err) {
             res.sendStatus(500);
         } else {
-            if (files.inputFiles == undefined) 
+            if (files.inputFiles == undefined)
                 res.sendStatus(400);
             else {
                 var inputFile = files.inputFiles[0];
@@ -77,9 +77,14 @@ app.get('/game', function(req, res,next) {
 });
 app.get('/admin', function(req, res,next) {
 	res.sendFile("public/admin/index.html", { root:__dirname});
+  next();
 });
-
-
+app.get('/admin/gallery', function(req, res,next) {
+	res.sendFile("public/admin/gallery.html", { root:__dirname});
+});
+app.get('/admin/upload', function(req, res,next) {
+	res.sendFile("public/admin/forms.html", { root:__dirname});
+});
 app.use((req,res,next)=>{
     res.send("404 not found");
 })

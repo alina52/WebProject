@@ -6,7 +6,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Manage | Mew</title>
+    <title>管理平台 | Mew</title>
     <link href="../img/favicon.ico" rel="icon" type="image/x-icon" />
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
@@ -22,35 +22,30 @@
         <div class="row">
 
             <div class="col-md-6">
-                <h2 class="font-bold">Welcome to Mew</h2>
+                <h1 class="font-bold">欢迎来到Mew的管理后台</h1>
 
-                <p>
-                    这是我的相册管理后台
-                </p>
+                <p>这是我的相册管理后台</p>
+                <p>我觉得</p>
+                <p>你看我时很远</p>
+                <p>你看云时很近</p>
+
 
             </div>
             <div class="col-md-6">
                 <div class="ibox-content">
                     <form class="m-t" role="form" action="index.html">
                         <div class="form-group">
-                            <input type="email" class="form-control" placeholder="Username" required="">
+                            <input id="username" type="text" class="form-control" placeholder="用户名" required="">
                         </div>
                         <div class="form-group">
-                            <input type="password" class="form-control" placeholder="Password" required="">
+                            <input id="password" type="password" class="form-control" placeholder="密码" required="">
                         </div>
-                        <button type="submit" class="btn btn-primary block full-width m-b">Login</button>
+                        <button id="login" type="submit" class="btn btn-primary block full-width m-b" >登录</button>
 
-                        <a href="#">
-                            <small>Forgot password?</small>
-                        </a>
 
-                        <p class="text-muted text-center">
-                            <small>Do not have an account?</small>
-                        </p>
-                        <a class="btn btn-sm btn-white btn-block" href="register.html">Create an account</a>
                     </form>
                     <p class="m-t">
-                        <small>Inspinia we app framework base on Bootstrap 3 &copy; 2014</small>
+                        <small>Web Project 2017</small>
                     </p>
                 </div>
             </div>
@@ -61,11 +56,14 @@
                 Copyright 王尘玉
             </div>
             <div class="col-md-6 text-right">
-               <small>© 2014-2015</small>
+               <small>© 2017</small>
             </div>
         </div>
     </div>
 
+<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+
+<script type="text/javascript" src="js/login.js"></script>
 </body>
 
 </html>
