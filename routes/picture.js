@@ -5,6 +5,21 @@ var token_helper = require('../util/token_helper');
 var db = require('../util/db.js');
 
 
+
+
+router.route('/')
+.get(function(req, res, next) {
+	var sql = 'select * from picture';
+	db.do_query(sql, function(result) {
+		for (var index = 0; index < result.length; index++) {
+			var tags = [];
+			tags = result[index]['tag'].split(',');
+			result[index]['tag'] = tags;
+		}
+		res.send({'pictures': result});
+	})
+})
+
 router.route('/*')
 .all(function(req, res, next) {
 	var token = req.query['token'];
@@ -20,17 +35,6 @@ router.route('/*')
 });
 
 router.route('/')
-.get(function(req, res, next) {
-	var sql = 'select * from picture';
-	db.do_query(sql, function(result) {
-		for (var index = 0; index < result.length; index++) {
-			var tags = [];
-			tags = result[index]['tag'].split(',');
-			result[index]['tag'] = tags;
-		}
-		res.send({'pictures': result});
-	})
-})
 .post(function(req, res, next) {
 
 	var sql = 'insert into picture (name, description, date, tag, path) values(\'' + req.body['name'] + '\', \'';

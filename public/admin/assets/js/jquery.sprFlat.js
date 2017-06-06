@@ -87,7 +87,7 @@
             backToTop: {
                 active: true, //activate back to top
                 scrolltime: 800, //scroll time speed
-                imgsrc: 'assets/img/backtop.png', //image 
+                imgsrc: 'assets/img/backtop.png', //image
                 width: 48, //width of image
                 place: 'bottom-right', //position top-left, top-right, bottom-right, bottom-left
                 fadein: 500, //fadein speed
@@ -115,7 +115,7 @@
         // the "constructor" method that gets called when the object is created
         plugin.init = function() {
 
-            // the plugin's final properties are the merged default and 
+            // the plugin's final properties are the merged default and
             // user-provided options (if any)
             plugin.settings = $.extend({}, defaults, options);
 
@@ -156,7 +156,7 @@
             this.toggleHeaderArea();
             //chat window basic functions
             this.chatWindow();
-            
+
             //fixed header
             if(plugin.settings.header.fixed) {
                 this.fixedHeader(true);
@@ -216,7 +216,7 @@
                 this.backToTop();
             }
 
-            
+
             //call center modal function after modal is show
             $('.modal').on('show.bs.modal', function (e) {
                 //center modal
@@ -226,7 +226,7 @@
             //update breadcrumbs
             if (plugin.settings.breadcrumbs.auto) {
                 this.breadCrumbs();
-            }       
+            }
 
             //dropdown menu animations
             if(plugin.settings.dropdownMenu.animation) {
@@ -253,7 +253,7 @@
                 //center bootstrap modal
                 plugin.centerModal();
             });
-        }   
+        }
 
         //get breakpoint
         plugin.getBreakPoint = function () {
@@ -300,15 +300,15 @@
                     height: '100%',
                     distance: '0',
                     railVisible: false,
-                    size: plugin.settings.customScroll.size,                    
-                    color: plugin.settings.customScroll.color,                    
+                    size: plugin.settings.customScroll.size,
+                    color: plugin.settings.customScroll.color,
                     railOpacity: plugin.settings.customScroll.opacity,
                     railColor: plugin.settings.customScroll.railColor
                 });
             } else {
                 $('#sidebar').removeClass('sidebar-fixed');
                 //deactivate slim scroll
-                $('.sidebar-inner').parent().replaceWith($('.sidebar-inner')); 
+                $('.sidebar-inner').parent().replaceWith($('.sidebar-inner'));
                 $('.sidebar-inner').attr('style', '');
             }
         }
@@ -325,17 +325,17 @@
                     } else {
                         btnIcon.transition({rotate: '0deg'});
                     }
-                    //need to parse actual width        
+                    //need to parse actual width
                     hw =  $('#header-area>').width();
                     hwbutton = $('.shortcut-button a').outerWidth();
-                    elcount = $('#header-area>.header-area-inner>ul li').length +1;                
+                    elcount = $('#header-area>.header-area-inner>ul li').length +1;
                     actualWidht = hwbutton * elcount + elcount*2 + elcount*10 +30;
                     if (hw <= actualWidht) {
                         $('#header-area>.header-area-inner>.list-unstyled').css('width', actualWidht);
                     }
                     $('#header-area>.header-area-inner').slimScrollHorizontal({
-                        size: plugin.settings.customScroll.size,                    
-                        color: plugin.settings.customScroll.color,                    
+                        size: plugin.settings.customScroll.size,
+                        color: plugin.settings.customScroll.color,
                         railOpacity: plugin.settings.customScroll.opacity,
                         railColor: plugin.settings.customScroll.railColor,
                         width: '100%',
@@ -356,19 +356,19 @@
             var toggleButton = $('#toggle-sidebar');
             var toggleIcon = toggleButton.find('i');
             var breakpoint = plugin.getBreakPoint();
-            toggleButton.on("click", function(e){ 
+            toggleButton.on("click", function(e){
                 e.preventDefault();
-                //sidebar 
-                $('#sidebar').toggleClass('hide-sidebar');  
+                //sidebar
+                $('#sidebar').toggleClass('hide-sidebar');
                 if (breakpoint == 'tablet' || breakpoint == 'phone') {
                     if (plugin.settings.sidebar.offCanvas) {
                         $('#content').toggleClass('full-page offCanvas');
                     } else {
                         $('#content').toggleClass('full-page overLap');
-                    }                    
+                    }
                 } else {
                     $('#content').toggleClass('full-page');
-                }            
+                }
                 //content
                 if($('#content').hasClass('full-page')) {
                     $('#content').removeClass('sidebar-page');
@@ -421,29 +421,29 @@
             var toggleButton = $('#toggle-sidebar');
             var toggleIcon = toggleButton.find('i');
             var breakpoint = plugin.getBreakPoint();
-            if (plugin.settings.sidebar.offCanvas) {                
+            if (plugin.settings.sidebar.offCanvas) {
                 $('#sidebar').removeClass('hide-sidebar');
                 $('#content').removeClass('full-page');
-                $('#content').addClass('sidebar-page');                
+                $('#content').addClass('sidebar-page');
             } else {
                 if (breakpoint == 'tablet' || breakpoint == 'phone') {
                     $('#sidebar').removeClass('hide-sidebar');
                     $('#content').removeClass('sidebar-page');
-                    $('#content').addClass('overLap');  
+                    $('#content').addClass('overLap');
                 } else {
-                    $('#sidebar').removeClass('hide-sidebar');                    
+                    $('#sidebar').removeClass('hide-sidebar');
                     $('#content').removeClass('overLap');
-                    $('#content').removeClass('sidebar-page'); 
-                    $('#content').removeClass('full-page');  
-                }                
+                    $('#content').removeClass('sidebar-page');
+                    $('#content').removeClass('full-page');
+                }
             }
-            toggleIcon.transition({rotate: '0deg'});            
+            toggleIcon.transition({rotate: '0deg'});
         }
 
         //toggle right sidebar
         plugin.toggleRightSidebar = function() {
             var toggleButton = $('#toggle-right-sidebar');
-            toggleButton.on("click", function(e){ 
+            toggleButton.on("click", function(e){
                 e.preventDefault();
                 $('#right-sidebar').toggleClass('hide-sidebar');
                 if($('#content').hasClass('rightSidebar-page')) {
@@ -479,20 +479,20 @@
             if(!navSub.prev('a').hasClass('notExpand')) {
                 navSub.prev('a').addClass('notExpand');
             }
-            
+
             if(plugin.settings.sideNav.showNotificationNumbers != 'never') {
 
                 if(plugin.settings.sideNav.showNotificationNumbers == 'always') {
                     navSub.each(function(){
-                        subItems = $(this).find('li').length;   
+                        subItems = $(this).find('li').length;
                         if(!$(this).prev('a').find('span.notification').length){
                             $(this).prev('a').append('<span class="notification '+ plugin.settings.sideNav.notificationColor +'">' + subItems + '</span>');
-                        }      
+                        }
                     })
                 } else {
                     navSub.each(function(){
-                        subItems = $(this).find('li').length;   
-                        if(!$(this).prev('a').find('span.notification').length){    
+                        subItems = $(this).find('li').length;
+                        if(!$(this).prev('a').find('span.notification').length){
                             $(this).prev('a').append('<span class="notification onhover '+ plugin.settings.sideNav.notificationColor +'">' + subItems + '</span>');
                         }
                     })
@@ -510,18 +510,18 @@
 
             navLink.hover(
                 function () {
-                    //in 
-                    if(plugin.settings.sideNav.showIndicator) {$(this).find('.indicator').transition({opacity:1}, 50);}    
+                    //in
+                    if(plugin.settings.sideNav.showIndicator) {$(this).find('.indicator').transition({opacity:1}, 50);}
                 },
                 function () {
-                    //out 
+                    //out
                     if(plugin.settings.sideNav.showIndicator) {$(this).find('.indicator').transition({opacity:0}, 0);}
                 }
             );
 
             navLi.hover(
                 function () {
-                    //in 
+                    //in
                     _this = $(this).children('a');
                     if(plugin.settings.sideNav.hover) {
                         if(_this.hasClass('notExpand')) {
@@ -529,11 +529,11 @@
                             _this.next('ul').addClass('show');
                             _this.addClass('expand').removeClass('notExpand');
                         }
-                    }   
-                    
+                    }
+
                 },
                 function () {
-                    //out 
+                    //out
                     _this = $(this).children('a');
                     if(plugin.settings.sideNav.hover) {
                         if (_this.hasClass('expand')) {
@@ -541,7 +541,7 @@
                             _this.next('ul').slideUp(plugin.settings.sideNav.subCloseSpeed, plugin.settings.sideNav.animationEasing);
                             _this.addClass('notExpand').removeClass('expand');
                         }
-                    }     
+                    }
                 }
             );
 
@@ -556,7 +556,7 @@
                         _this.addClass('expand').removeClass('notExpand');
                         if(plugin.settings.sideNav.showArrows) {
                             _this.find('.sideNav-arrow').transition({rotate: '-180deg'});
-                        }                   
+                        }
                     } else if (_this.hasClass('expand')) {
                         e.preventDefault();
                         //collapse ul and change class to notExpand
@@ -587,7 +587,7 @@
                     //absolute url is enabled
                     var newDomain = 'http://' + domain + window.location.pathname;
                     this.setCurrentClass(navLinks, newDomain);
-                
+
                 } else {
                     //absolute url is disabled
                     var afterDomain = window.location.pathname.split( '/' );
@@ -616,11 +616,11 @@
                         var _this = $(this).closest('li.hasSub').children('a.notExpand');
                         _this.removeClass('notExpand').addClass('expand active-state');
                         //_this.closest('li.hasSub').addClass('current');
-                        
+
                         if(plugin.settings.sideNav.showArrows) {
                             _this.find('.sideNav-arrow').transition({rotate: '-180deg'}, 0);
                         }
-                    } 
+                    }
                 } else {
                     if (url == '') {
                         url = 'index.html';
@@ -672,18 +672,18 @@
             );
         }
 
-        //panels 
+        //panels
         plugin.panels = function () {
             //cache all panels
             var panels = $('.panel');
-            
+
             panels.each(function( index ) {
                 self = $(this);
                 panelHeading = self.find('.panel-heading');
                 //add id depend of first positon
                 panelsid = 'spr_' + index;
                 self.attr('id', panelsid);
-                
+
                 //inject all controls per class
                 if(self.hasClass('toggle') || self.hasClass('panelClose') || self.hasClass('panelRefresh')) {
                     if(!panelHeading.find('.panel-controls').length) {
@@ -693,7 +693,7 @@
                         panelControls = panelHeading.find('.panel-controls');
                     }
                 }
-    
+
                 //refresh
                 if(self.hasClass('panelRefresh') && !panelControls.find('a.panel-refresh').length) {
                     panelControls.append('<a href="#" class="panel-refresh"><i class="'+ plugin.settings.panels.refreshIcon+'"></i></a>');
@@ -720,13 +720,13 @@
                 } else if (plugin.settings.panels.showControlsOnHover) {
                     self.find('.panel-controls').addClass('panel-controls-hide');
                 }
-                
+
             });
 
             panelControls = panels.find('.panel-controls');
             panelControlsLink = panelControls.find('a');
-          
-            
+
+
             if (plugin.settings.panels.showControlsOnHover) {
                 //hover on panel
                 panels.hover(
@@ -769,7 +769,7 @@
                     thisPanelFooter.slideToggle(200);
                     thisPanelHeading.toggleClass('min');
                 }
-                
+
                 //refresh
                 if (self.hasClass('panel-refresh')) {
                     //display overlay
@@ -784,10 +784,10 @@
                 }
 
             });
-            
+
             //sort options
             if (!$('.outlet').hasClass('notSortable')) {
-                
+
                 var sortItem = $('.outlet').find(".sortable-layout");
                 var items = sortItem.find(".panelMove");
                 var handle = items.find('.panel-heading');
@@ -806,7 +806,7 @@
                         }
                     }
                 }
-                
+
                 sortItem.sortable({
                     items: items,
                     connectWith: sortItem,
@@ -814,18 +814,18 @@
                     placeholder: "panel-placeholder",
                     forcePlaceholderSize: true,
                     helper: 'original',
-                    forceHelperSize: true, 
+                    forceHelperSize: true,
                     //forceHelperSize: true,
                     cursor: "move",
                     revert: true,
                     delay: 200,
                     opacity: 0.8,
                     zIndex: 10000,
-                    tolerance: "pointer",                           
+                    tolerance: "pointer",
                     update: function (event, ui) {
                         if (plugin.settings.panels.rememberSortablePosition) {
                             panelSavePosition(ui.item);
-                        }                       
+                        }
                     }
                 });
 
@@ -837,10 +837,10 @@
                         callback: function(result) {
                             if (result) {
                                 localStorage.removeItem(panelsPosition);
-                                location.reload(); 
+                                location.reload();
                             }
                         }
-                    });                    
+                    });
                 });
 
                 panelSavePosition = function (item) {
@@ -865,9 +865,9 @@
                     }
                 }
 
-            } 
-            
-            
+            }
+
+
         }
 
         // bootstrap accordion
@@ -876,7 +876,7 @@
                 var pluginName = "bsAccordion",
                     defaults = {
                         toggle: false
-                    };                    
+                    };
                 function Plugin(element, options) {
                     this.element = element;
                     this.settings = $.extend({}, defaults, options);
@@ -938,13 +938,13 @@
                 height: '100%',
                 distance: '0',
                 railVisible: false,
-                size: plugin.settings.customScroll.size,                    
-                color: plugin.settings.customScroll.color,                    
+                size: plugin.settings.customScroll.size,
+                color: plugin.settings.customScroll.color,
                 railOpacity: plugin.settings.customScroll.opacity,
                 railColor: plugin.settings.customScroll.railColor
             });
 
-            chat_user.on("click", function(e){ 
+            chat_user.on("click", function(e){
                 e.preventDefault();
                 //show chat_box
                 chat_box.addClass('chatbox-show');
@@ -954,13 +954,13 @@
                 chat_msgbox.autosize();
                 //chat_msgbox.trigger('autosize.resize');
             });
-            close_chat.on("click", function(e){ 
+            close_chat.on("click", function(e){
                 e.preventDefault();
                 //close chat_box
                 chatUserList.removeClass('hide-it');
                 chat_box.removeClass('chatbox-show');
             });
-            
+
             //handle send msg
             chat_msgbox.on('keyup', function(e) {
                 if (e.which == 13 && ! e.shiftKey) {
@@ -1065,7 +1065,7 @@
             var breadcrumb = $('#crumb');
             var rightArrow = '<i class="en-arrow-right7"></i>';
             var homeIcon = '<i class="im-home"></i>';
-            
+
             var navel = $('#sideNav>li a.active');
             var navsub = navel.closest('.nav.sub');
             //empty curmb
@@ -1089,12 +1089,12 @@
                 icon = navel.children('i').prop('outerHTML');
                 text = navel.children('.indicator').remove().end().text();
                 breadcrumb.append('<li>'+ icon +' '+ text +'</li>');
-            }         
+            }
 
         }
 
-        plugin.launchFullScreen = function (el) {           
-            if ((document.fullScreenElement && document.fullScreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) { 
+        plugin.launchFullScreen = function (el) {
+            if ((document.fullScreenElement && document.fullScreenElement !== null) || (!document.mozFullScreen && !document.webkitIsFullScreen)) {
                 $('body').addClass("full-screen");
                 if (document.documentElement.requestFullScreen) {
                   document.documentElement.requestFullScreen();
@@ -1192,7 +1192,7 @@ this.bind("mousewheel",fn):this.trigger("mousewheel")},unmousewheel:function(fn)
                     plugin.showLeftSidebar();
                 },
                 exit: function() {
-                    
+
                 }
             });
             jRes.addFunc({
@@ -1251,27 +1251,27 @@ this.bind("mousewheel",fn):this.trigger("mousewheel")},unmousewheel:function(fn)
                         }
                     },
                 });
-            }     
+            }
 
             //quick search on chat users
             if ($('.chat-search input').length) {
                 $('.chat-search input').val('').quicksearch('.chat-ui li');
-            }  
+            }
 
             //quick search on todo widget
             if ($('.todo-search input').length) {
                 $('.todo-search input').val('').quicksearch('.todo-list .todo-task-item');
-            } 
+            }
 
             //quick search on recent-users widget
             if ($('.users-search input').length) {
                 $('.users-search input').val('').quicksearch('.recent-users-widget .list-group-item');
-            } 
+            }
 
             //quick search on email app toolbar
             if ($('.email-toolbar-search input').length) {
                 $('.email-toolbar-search input').val('').quicksearch('.email-list tr');
-            }           
+            }
         }
 
         //expand all nav ul element
@@ -1298,7 +1298,7 @@ this.bind("mousewheel",fn):this.trigger("mousewheel")},unmousewheel:function(fn)
             }
         }
 
-        //email app 
+        //email app
         plugin.emailApp = function () {
             var eside = $('#email-sidebar');
             var econtent = $('#email-content');

@@ -38,77 +38,16 @@
 					<p>这个是我的相册，点击图片可以查看大图模式。</p>
 				</div>
 			</div>
-			<div class="row">
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<a href="../img/img_2.jpg" class="fh5co-project-item image-popup">
+			<div class="row" id="picture">
+				<div class="col-lg-4 col-md-4 col-sm-6" v-for="picture in res">
+					<a :href="picture.path" class="fh5co-project-item image-popup">
 						<figure>
 							<div class="overlay"></div>
-							<img src="../img/img_2.jpg" alt="Image" class="img-responsive">
+							<img :src="picture.path" alt="Image" class="img-responsive">
 						</figure>
 						<div class="fh5co-text">
-							<h2>Constructive heading</h2>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
-						</div>
-					</a>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<a href="../img/img_3.jpg" class="fh5co-project-item image-popup">
-						<figure>
-							<div class="overlay"></div>
-							<img src="../img/img_3.jpg" alt="Image" class="img-responsive">
-						</figure>
-						<div class="fh5co-text">
-							<h2>Constructive heading</h2>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
-						</div>
-					</a>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<a href="../img/img_4.jpg" class="fh5co-project-item image-popup">
-						<figure>
-							<div class="overlay"></div>
-							<img src="../img/img_4.jpg" alt="Image" class="img-responsive">
-						</figure>
-						<div class="fh5co-text">
-							<h2>Constructive heading</h2>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
-						</div>
-					</a>
-				</div>
-
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<a href="../img/img_1.jpg" class="fh5co-project-item image-popup">
-						<figure>
-							<div class="overlay"></div>
-							<img src="../img/img_1.jpg" alt="Image" class="img-responsive">
-						</figure>
-						<div class="fh5co-text">
-							<h2>Constructive heading</h2>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
-						</div>
-					</a>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<a href="../img/img_5.jpg" class="fh5co-project-item image-popup">
-						<figure>
-							<div class="overlay"></div>
-							<img src="../img/img_5.jpg" alt="Image" class="img-responsive">
-						</figure>
-						<div class="fh5co-text">
-							<h2>Constructive heading</h2>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
-						</div>
-					</a>
-				</div>
-				<div class="col-lg-4 col-md-4 col-sm-6">
-					<a href="../img/img_6.jpg" class="fh5co-project-item image-popup">
-						<figure>
-							<div class="overlay"></div>
-							<img src="../img/img_6.jpg" alt="Image" class="img-responsive">
-						</figure>
-						<div class="fh5co-text">
-							<h2>Constructive heading</h2>
-							<p>Far far away, behind the word mountains, far from the countries Vokalia..</p>
+							<h2>{{picture.name}}</h2>
+							<p>{{picture.description}}</p>
 						</div>
 					</a>
 				</div>
@@ -120,6 +59,8 @@
 
 	<!-- jQuery -->
 	<script src="../bower_components/jquery/dist/jquery.min.js"></script>
+	<script src="https://cdn.bootcss.com/vue/2.3.3/vue.min.js"></script>
+
 	<!-- Bootstrap -->
 	<script src="../bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
 	<!-- Magnific Popup -->

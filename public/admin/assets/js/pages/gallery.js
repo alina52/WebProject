@@ -27,7 +27,7 @@ $(document).ready(function() {
 	        effects: 'fade translateZ(500px)',
 	        duration: 300
 	    },
-	}); 
+	});
 
 	//------------- Open image -------------//
 	$('.gallery-inner').magnificPopup({
@@ -40,13 +40,13 @@ $(document).ready(function() {
 
 	//------------- hover direction plugin -------------//
     $(function () {
-		$('.mix').hoverDirection();      
+		$('.mix').hoverDirection();
 		$('.mix .gallery-image-controls ').on('animationend', function (event) {
-			var $box = $(this).parent();
+			// var $box = $(this).parent();
 			$box.filter('[class*="-leave-"]').hoverDirection('removeClass');
 		});
     });
-  
+
 
 	//------------- Sparklines -------------//
 	$('#usage-sparkline').sparkline([35,46,24,56,68, 35,46,24,56,68], {
@@ -87,7 +87,7 @@ $(document).ready(function() {
     //first is line width, size for pie, animated time , and colours object for theming.
 	initPieChart(10,40, 1500, colours);
 
- 	
+
 });
 
 //Setup easy pie charts in sidebar

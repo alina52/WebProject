@@ -69,19 +69,19 @@ $(document).ready(function() {
             rememberToggle: true, //remember if sidebar is hided
             offCanvas: false //make sidebar offcanvas in tablet and small screens
         },
-        sideNav : {
-            hover: false, //shows subs on hover or click
-            showNotificationNumbers: 'onhover',//show how many elements menu have with notifcation style values - always, onhover, never
-            showArrows: true,//show arrow to indicate sub
-            sideNavArrowIcon: 'en-arrow-down5', //arrow icon for navigation
-            showIndicator: false,//show indicator when hover links
-            notificationColor: 'red', //green, red
-            subOpenSpeed: 300,//animation speed for open subs
-            subCloseSpeed: 400,//animation speed for close subs
-            animationEasing: 'linear',//animation easing
-            absoluteUrl: false, //put true if use absolute path links. example http://www.host.com/dashboard instead of /dashboard
-            subDir: '' //if you put template in sub dir you need to fill here. example '/html'
-        },
+        // sideNav : {
+        //     hover: false, //shows subs on hover or click
+        //     showNotificationNumbers: 'onhover',//show how many elements menu have with notifcation style values - always, onhover, never
+        //     showArrows: true,//show arrow to indicate sub
+        //     sideNavArrowIcon: 'en-arrow-down5', //arrow icon for navigation
+        //     showIndicator: false,//show indicator when hover links
+        //     notificationColor: 'red', //green, red
+        //     subOpenSpeed: 300,//animation speed for open subs
+        //     subCloseSpeed: 400,//animation speed for close subs
+        //     animationEasing: 'linear',//animation easing
+        //     absoluteUrl: false, //put true if use absolute path links. example http://www.host.com/dashboard instead of /dashboard
+        //     subDir: '' //if you put template in sub dir you need to fill here. example '/html'
+        // },
         tile: {
             countNumbers: true //count numbers from 0 to specified value (required count plugin)
         },
@@ -109,7 +109,7 @@ $(document).ready(function() {
         backToTop: {
             active: true, //activate back to top
             scrolltime: 800, //scroll time speed
-            imgsrc: 'assets/img/backtop.png', //image 
+            imgsrc: 'assets/img/backtop.png', //image
             width: 48, //width of image
             place: 'bottom-right', //position top-left, top-right, bottom-right, bottom-left
             fadein: 500, //fadein speed

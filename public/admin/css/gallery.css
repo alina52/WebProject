@@ -1,0 +1,17 @@
+.gallery-inner .pic{
+  position: relative;
+}
+.gallery-inner .pic button{
+  position: absolute;
+  display: none;
+  transition: 0.3s;
+  -webkit-transition: .5s;
+  -moz-transition: .5s;
+}
+.gallery-inner .pic:hover button{
+  right: 4%;
+  bottom: 10%;
+  opacity: 999;
+  position: absolute;
+  display:block;
+}
