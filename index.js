@@ -85,6 +85,9 @@ app.get('/admin/gallery', function(req, res,next) {
 app.get('/admin/upload', function(req, res,next) {
 	res.sendFile("public/admin/forms.html", { root:__dirname});
 });
+app.get('/admin/edit', function(req, res,next) {
+	res.sendFile("public/admin/edit.html", { root:__dirname});
+});
 app.use((req,res,next)=>{
     res.send("404 not found");
 })

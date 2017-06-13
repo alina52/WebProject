@@ -3,16 +3,14 @@
 
 <head>
   <meta charset="utf-8">
-  <title>管理平台 | 相册管理</title>
+  <title>管理平台 | 编辑图片</title>
   <link href="../img/favicon.ico" rel="icon" type="image/x-icon" />
-
   <!-- Mobile specific metas -->
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <!-- Force IE9 to render in normal mode -->
-  <!--[if IE]><meta http-equiv="x-ua-compatible" content="IE=9" /><![endif]-->
-
   <!-- Import google fonts - Heading first/ text second -->
-  <link rel='stylesheet' type='text/css' <!-- Css files -->
+  <link rel='stylesheet' type='text/css' <!--[if lt IE 9]>
+
+  <!-- Css files -->
   <!-- Icons -->
   <link href="assets/css/icons.css" rel="stylesheet" />
   <!-- jQueryUI -->
@@ -24,11 +22,8 @@
   <!-- Main stylesheets (template main css file) -->
   <link href="assets/css/main.css" rel="stylesheet" />
   <!-- Custom stylesheets ( Put your own changes here ) -->
-  <link rel="stylesheet" href="css/layui.css">
-  <link rel="stylesheet" href="css/gallery.css">
-
   <link href="assets/css/custom.css" rel="stylesheet" />
-
+  <!-- Fav and touch icons -->
 
   <!-- Windows8 touch icon ( http://www.buildmypinnedsite.com/ )-->
   <meta name="msapplication-TileColor" content="#6fd6c5" />
@@ -41,23 +36,24 @@
       <div class="navbar">
         <div class="navbar-header">
           <a class="navbar-brand" href="index.html">
-            <i class="text-logo-element animated bounceIn"></i><span class="text-logo">M</span><span class="text-slogan">ew</span>
+              <i class="im-windows10 text-logo-element animated bounceIn"></i><span class="text-logo">M</span><span class="text-slogan">ew</span>
           </a>
         </div>
         <nav class="top-nav" role="navigation">
           <ul class="nav navbar-nav pull-left">
             <li id="toggle-sidebar-li">
-              <a href="#" id="toggle-sidebar"><i class="en-arrow-left2"></i></a>
+              <a href="#" id="toggle-sidebar"><i class="en-arrow-left2"></i>
+              </a>
             </li>
             <li>
               <a href="#" class="full-screen"><i class="fa-fullscreen"></i></a>
             </li>
+
           </ul>
           <ul class="nav navbar-nav pull-right">
-
             <li class="dropdown">
               <a href="#" data-toggle="dropdown">
-                                  <img class="user-avatar" src="assets/img/avatars/my.png" alt="SuggeElson">Wang</a>
+                  <img class="user-avatar" src="assets/img/avatars/my.png" alt="SuggeElson">Wang</a>
               <ul class="dropdown-menu right" role="menu">
                 <li><a href="index.html"><i class="im-exit"></i> Logout</a>
                 </li>
@@ -66,8 +62,10 @@
           </ul>
         </nav>
       </div>
+
     </div>
   </div>
+
   <div id="sidebar">
     <div class="sidebar-inner">
       <ul id="sideNav" class="nav nav-pills nav-stacked">
@@ -84,55 +82,71 @@
     </div>
   </div>
 
-  <!-- Start #content -->
   <div id="content">
-    <!-- Start .content-wrapper -->
     <div class="content-wrapper">
       <div class="row">
-
         <div class="col-lg-12 heading">
-          <h1 class="page-header"><i class="im-images"></i> 相册</h1>
+          <h1 class="page-header"><i class="im-paragraph-justify"></i> 修改图片</h1>
+          <!-- <ul id="crumb" class="breadcrumb">
+          </ul> -->
         </div>
-        <!-- End .page-header -->
       </div>
-      <!-- End .row -->
       <div class="outlet">
-        <!-- Start .outlet -->
-        <!-- Page start here ( usual with .row ) -->
         <div class="row">
-          <div class="gallery" id="picture">
-            <!-- start .gallery -->
-            <div class="gallery-toolbar">
-            </div>
-            <div class="gallery-inner">
-              <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3 pic" v-for="picture in res">
-                <a href="#" class="thumbnail">
-                    <img  :src="picture.path" alt="image">
-                    <div class="button-group">
-                      <button class="btn btn-danger btn-alt" @click="handleDelete(picture.picture_id)" >删除</button>
-                      <button class="btn btn-info btn-alt" @click="GotoEdit(picture.picture_id)">修改</button>
+          <div class="col-lg-12">
+            <div class="panel panel-default toggle">
+              <div class="panel-heading">
+                <h3 class="panel-title">填写图片信息</h3>
+              </div>
+              <div class="panel-body">
+                <form class="form-horizontal group-border hover-stripped" role="form">
+
+                  <div class="form-group">
+                    <label class="col-lg-2 col-md-2 col-sm-12 control-label">名称</label>
+                    <div class="col-lg-3 col-md-3">
+                      <input id="name" type="text" class="form-control limitInput" placeholder="最多20字" maxlength="20">
                     </div>
-                </a>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-lg-2 col-md-2 col-sm-12 control-label">选择日期</label>
+                    <div class="col-lg-3 col-md-3">
+                      <input id="date" class="form-control datetime-picker2" type="text" value="">
+                    </div>
+
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-lg-2 col-md-2 col-sm-12 control-label">标签</label>
+                    <div class="col-lg-6 col-md-6">
+                      <input id="tag" type="text" class="form-control tags" value="home">
+                    </div>
+                  </div>
+
+                  <div class="form-group">
+                    <label class="col-lg-2 col-md-2 col-sm-12 control-label">描述</label>
+                    <div class="col-lg-6 col-md-6">
+                      <textarea id="description"class="form-control limitInput" rows="3" placeholder="最多50字" maxlength="50"></textarea>
+                    </div>
+                  </div>
+                  <div class="col-lg-offset-2">
+                      <button  id="handleEdit" class="btn btn-success btn-alt" type="submit">提交</button>
+                  </div>
+
+                </form>
               </div>
             </div>
           </div>
-          <!-- gallery end here -->
         </div>
-        <!-- Page End here -->
       </div>
-      <!-- End .outlet -->
     </div>
-    <!-- End .content-wrapper -->
-    <div class="clearfix"></div>
   </div>
-  <!-- End #content -->
+
   <!-- Javascripts -->
   <!-- Load pace first -->
   <script src="assets/plugins/core/pace/pace.min.js"></script>
   <!-- Important javascript libs(put in all pages) -->
   <script src="http://code.jquery.com/jquery-2.1.1.min.js"></script>
-  <script src="https://cdn.bootcss.com/vue/2.3.3/vue.min.js"></script>
-
   <script>
     window.jQuery || document.write('<script src="assets/js/libs/jquery-2.1.1.min.js">\x3C/script>')
   </script>
@@ -160,20 +174,32 @@
   <!-- Bootbox confirm dialog for reset postion on panels -->
   <script src="assets/plugins/ui/bootbox/bootbox.js"></script>
   <!-- Other plugins ( load only nessesary plugins for every page) -->
+  <script src="assets/plugins/core/moment/moment.min.js"></script>
   <script src="assets/plugins/charts/sparklines/jquery.sparkline.js"></script>
   <script src="assets/plugins/charts/pie-chart/jquery.easy-pie-chart.js"></script>
   <script src="assets/plugins/forms/icheck/jquery.icheck.js"></script>
-  <script src="assets/plugins/forms/tags/jquery.tagsinput.min.js"></script>
+  <script src="assets/plugins/forms/tags/jquery.tagsinput.js"></script>
   <script src="assets/plugins/forms/tinymce/tinymce.min.js"></script>
+  <script src="assets/plugins/forms/switch/jquery.onoff.min.js"></script>
+  <script src="assets/plugins/forms/maxlength/bootstrap-maxlength.js"></script>
+  <script src="assets/plugins/forms/bootstrap-filestyle/bootstrap-filestyle.js"></script>
+  <script src="assets/plugins/forms/color-picker/spectrum.js"></script>
+  <script src="assets/plugins/forms/daterangepicker/daterangepicker.js"></script>
+  <script src="assets/plugins/forms/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+  <script src="assets/plugins/forms/globalize/globalize.js"></script>
+  <script src="assets/plugins/forms/maskedinput/jquery.maskedinput.js"></script>
+  <script src="assets/plugins/forms/select2/select2.js"></script>
+  <script src="assets/plugins/forms/dual-list-box/jquery.bootstrap-duallistbox.js"></script>
+  <script src="assets/plugins/forms/password/jquery-passy.js"></script>
+  <script src="assets/plugins/forms/checkall/jquery.checkAll.js"></script>
   <script src="assets/plugins/misc/highlight/highlight.pack.js"></script>
   <script src="assets/plugins/misc/countTo/jquery.countTo.js"></script>
-  <script src="assets/plugins/misc/gallery/jquery.magnific-popup.min.js"></script>
-  <script src="assets/plugins/misc/mixitup/jquery.mixitup.min.js"></script>
   <script src="assets/js/jquery.sprFlat.js"></script>
   <script src="assets/js/app.js"></script>
-  <script src="assets/js/pages/gallery.js"></script>
-  <script src="js/layer.js"></script>
-  <script src="js/gallery.js"></script>
+  <script src="assets/js/pages/forms.js"></script>
+  <script src="js/edit.js">
+
+  </script>
 </body>
 
 </html>

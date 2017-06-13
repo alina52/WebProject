@@ -14,11 +14,6 @@ new Vue({
                     contentType:'false',
                     success:function(data){
                         that.res = data.pictures
-
-                        // for(i=0;i<res.length;i++){
-                        //   that.id=res[i].picture_id;
-                        //   that.path=res[i].path;
-                        // }
                     }
                 })
             })
@@ -34,13 +29,15 @@ new Vue({
                     if(status=='OK'){
                       window.location.href = "/admin/gallery";
                     }
-
-                    // for(i=0;i<res.length;i++){
-                    //   that.id=res[i].picture_id;
-                    //   that.path=res[i].path;
-                    // }
                 }
             })
+          },
+
+          GotoEdit(picture_id){
+            sessionStorage.setItem("id", picture_id);
+            window.location.href = "/admin/edit";
+
+
           }
         }
 

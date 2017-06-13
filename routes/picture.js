@@ -57,9 +57,8 @@ router.route('/:id')
 	req.body['tag'] = tags;
 
 	var sql = "update picture set name = \'" + req.body['name'] + "\', description = \'" + req.body['description'];
-	sql += "\', tag = \'" + req.body['tag'] + "\', date = \'" + req.body['date'] + "\', path = \'" + req.body['path'];
-	sql += "\' where picture_id = " + pic_id;
-	console.log(sql);
+	sql += "\', tag = \'" + req.body['tag'] + "\', date = \'" + req.body['date'] + "\'";
+	sql += " where picture_id = " + pic_id;
 	db.do_query(sql, function() {});
 	res.sendStatus(200);
 })
