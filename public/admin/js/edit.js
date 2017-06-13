@@ -1,4 +1,19 @@
 $(document).ready(function(){
+  $.ajax({
+    url: 'http://localhost:3000/api/picture/' + sessionStorage.getItem("id"),
+    type: 'GET',
+    cache: false,
+    contentType: 'application/x-www-form-urlencoded; charset=UTF-8',
+      success: function (res) {
+        console.log(res);
+        document.getElementById("name").value=res.name;
+        document.getElementById("date").value=res.date;
+        document.getElementById("tag").value=res.tag;
+        document.getElementById("description").value=res.description;
+
+      }
+  });
+
   $("#handleEdit").click(function(){
     var name = $("#name").val();
     var date = $("#date").val();

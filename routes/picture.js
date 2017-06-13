@@ -20,6 +20,18 @@ router.route('/')
 	})
 })
 
+router.route('/:id')
+.get(function (req, res, next) {
+	var id = req.params.id;
+	var sql = 'select * from picture where picture_id = ' + id;
+	db.do_query(sql, function(result) {
+		if (result !== null && result.length > 0)
+			res.send(result[0]);
+		else
+			res.sendStatus(500);
+	})
+})
+
 router.route('/*')
 .all(function(req, res, next) {
 	var token = req.query['token'];
