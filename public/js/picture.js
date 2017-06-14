@@ -1,12 +1,12 @@
 $(".menu").mousedown(function(){
 $(this).toggleClass("closed");
-
 if($(this).hasClass("closed")) {
-  $(".main.button").text("Menu");
+  $(".main").text("Menu");
 } else {
-  $(".main.button").text("Menu");
+  $(".main").text("Menu");
 }
 })
+
 
 
 new Vue({
@@ -25,11 +25,6 @@ new Vue({
                     contentType:'false',
                     success:function(data){
                         that.res = data.pictures
-
-                        // for(i=0;i<res.length;i++){
-                        //   that.id=res[i].picture_id;
-                        //   that.path=res[i].path;
-                        // }
                     }
                 })
             })
